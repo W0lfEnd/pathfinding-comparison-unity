@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Benchmark/Menu.unity
+    guid: 6d3bec372622a3b4484b15e0c34451ad
+  - enabled: 1
+    path: Assets/Benchmark/Aoiti/BenchmarkAoiti.unity
+    guid: a02580396078dd8428170e84afbd4f47
+  - enabled: 1
+    path: Assets/Benchmark/AStarProject/AStarProjectBenchmark.unity
+    guid: a42528c44bdbcfa40883160b28c34b2f
+  - enabled: 1
+    path: Assets/Benchmark/NavMeshPlus/NavMeshPlusBenchmark.unity
+    guid: c9b908b29470d564cb9cb5f2d5d88b22
   m_configObjects: {}

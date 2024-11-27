@@ -76,10 +76,14 @@ public class MovementController2D : MonoBehaviour
     List<Vector2> pathLeftToGo= new List<Vector2>();
     [SerializeField] bool drawDebugLines;
 
+    public Vector2 predefinedTarget;
+
     // Start is called before the first frame update
     void Start()
     {
         pathfinder = new Pathfinder<Vector2>(GetDistance,GetNeighbourNodes,1000); //increase patience or gridSize for larger maps
+        if (predefinedTarget != Vector2.zero)
+            GetMoveCommand(predefinedTarget);
     }
 
     // Update is called once per frame
@@ -111,8 +115,14 @@ public class MovementController2D : MonoBehaviour
     }
 
     
-    void GetMoveCommand(Vector2 target)
+    public void GetMoveCommand(Vector2 target)
     {
+        if (pathfinder == null)
+        {
+            predefinedTarget = target;
+            return;
+        }
+
         Vector2 closestNode = GetClosestNode(transform.position);
         if (pathfinder.GenerateAstarPath(closestNode, GetClosestNode(target), out path)) //Generate path between two points on grid that are close to the transform position and the assigned target.
         {
