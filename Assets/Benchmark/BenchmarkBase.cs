@@ -6,7 +6,7 @@ namespace Benchmark
 {
     public abstract class BenchmarkBase : MonoBehaviour
     {
-        public Collider2D Area;
+        public List<Collider2D> Areas;
         public abstract int AgentsCount { get; }
 
         public abstract void NewTargetForAllAgents();
@@ -16,8 +16,11 @@ namespace Benchmark
 
         protected Vector2 GetRandomPointInArea()
         {
-            return new Vector2(Random.Range(Area.bounds.min.x, Area.bounds.max.x),
-                Random.Range(Area.bounds.min.y, Area.bounds.max.y));
+            Collider2D area = Areas[Random.Range(0, Areas.Count)];
+            return new Vector2(
+                Random.Range(area.bounds.min.x, area.bounds.max.x),
+                Random.Range(area.bounds.min.y, area.bounds.max.y)
+            );
         }
     }
 }
